@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to DogFinder</title>
     <link rel="stylesheet" href="style.css">
-    <script src="src/index.js" ></script>
+    <!--<script src="src/index.js" ></script> -->
 </head>
 <body>
   <h1> Here are all the dogs </h1>
@@ -13,36 +13,25 @@
 
     
   </ul>
-  <!--
-    <div class="container">
-        <h1 id="main-title">DogFinder</h1>
-        <div id="buttons">
-          <button class="button" id="add-dog" type="button"></button>
-        </div>
-    </div>
-    <div id="filter-drop-down" class="hidden">
-        <h3>choose a breed </h3>
-        <select id="filter-dropdown">
-          <option value="" disabled selected>Select your breed</option>
-        </select>
-    </div>
-      <div class="form">
-        <form id="new-dog-form" class="hidden">
-          <label for="dog-name">Name:</label><br>
-          <input type="text" name="dog-title"><br>
-          <label for="image_url">Image URL</label><br>
-          <input type="text" name="image_url"><br>
-          <label for="age">Age</label><br>
-          <input type="text" name="age"><br>
-          <label for="breed">Breed:</label><br>
-          <input type="text" name="breed"><br>
-          <label for="location">Location</label><br>
-         <input type="text" name="location"><br>
-
-          <input id="form-submit" type="submit" value="Add Recipe">
-        </form>
-      </div>
-      <div id="recipe-card-container">
-    </div> -->
+  <h3> Add a dog here </h3>
+  <form id="dog-form">
+    <label for="dog-image">Image link:</label>
+    <input type="text" name="image_url" id="dog-image"><br>
+    <label for="dog-name"> Name: </label>
+    <input type="text" name="name" id="dog-name"><br>
+    <label for="dog-breed"> Breed: </label>
+    <input type="text" name="breed" id="dog-breed"><br>
+    <label for="dog-location"> Location: </label>
+    <input type="text" name="location" id="dog-location"><br>
+    <label for="dog-age"> Age(in years): </label>
+    <input type="number" name="age" id="dog-age"><br>
+    <label for="dog-description"> Description: </label>
+    <input type="text" name="description" id="dog-description"><br>
+    <label for="dog-email"> Contact info: </label>
+    <input type="text" name="email" id="dog-email">
+    <input type="submit" value="Create">
+  </form>
+  
+    <script src="src/index.js" ></script>
 </body>
 </html>
