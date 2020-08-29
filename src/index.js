@@ -22,13 +22,13 @@ function addDogToDom(dog){
     dogList.innerHTML += `
     <div id="dog-${dog.id}">
         <li>
-        <span class="image-url"> <img src="${dog.image_url}" width="100" height="100"> </span><br>
-        <span class="name">Name: ${dog.name}</span><br>
-        <span class="location">Location: ${dog.location}</span><br>
-        <span class="age">Age: ${dog.age}</span><br>
-        <span class="breed"> Breed: ${dog.breed}</span><br>
-        <span class="description">Description: ${dog.description}</span><br>
-        <span class="email"> Contact info: ${dog.email} </span>
+        <span class="image-url"> <img src="${dog.attributes.image_url}" width="100" height="100"> </span><br>
+        <span class="name">Name: ${dog.attributes.name}</span><br>
+        <span class="location">Location: ${dog.attributes.location}</span><br>
+        <span class="age">Age: ${dog.attributes.age}</span><br>
+        <span class="breed"> Breed: ${dog.attributes.breed}</span><br>
+        <span class="description">Description: ${dog.attributes.description}</span><br>
+        <span class="email"> Contact info: ${dog.attributes.email} </span>
         </li>
     </div>`
 }
@@ -55,7 +55,7 @@ function handleFormSubmit(e){
     fetch('http://127.0.0.1:3000/dogs', configObj)
     .then(res => res.json())
     .then(response => {
-        addDogToDom(response)
+        addDogToDom(response.data)
     })
 
     dogForm.reset()
