@@ -7,6 +7,7 @@ const dogLocation = document.getElementById("dog-location")
 const dogAge = document.getElementById("dog-age")
 const dogEmail = document.getElementById("dog-email")
 const dogDescription = document.getElementById("dog-description")
+const allDogs = document.getElementById("all-dogs")
 
 function fetchDogs() {
     fetch('http://127.0.0.1:3000/dogs')
@@ -26,7 +27,7 @@ function addDogToDom(dog){
         <span class="name">Name: ${dog.attributes.name}</span><br>
         <span class="location">Location: ${dog.attributes.location}</span><br>
         <span class="age">Age: ${dog.attributes.age}</span><br>
-        <span class="breed"> Breed: ${dog.attributes.breed}</span><br>
+        <span class="breed"> Breed: ${dog.attributes.breed.name}</span><br>
         <span class="description">Description: ${dog.attributes.description}</span><br>
         <span class="email"> Contact info: ${dog.attributes.email} </span>
         </li>
@@ -61,6 +62,6 @@ function handleFormSubmit(e){
     dogForm.reset()
 }
 document.addEventListener('DOMContentLoaded', () => {
-    fetchDogs()
+    allDogs.addEventListener('button', fetchDogs())
     dogForm.addEventListener('submit', handleFormSubmit)
 })
