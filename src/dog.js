@@ -20,15 +20,16 @@ class Dog{
         this.dogList.append(this.fullRender())
     }
     fullRender(){
-        dogList.innerHTML += `
+        this.element.innerHTML += `
         <li>
         <span class="image-url"> <img src="${this.image_url}" width="100" height="100"> </span><br>
-        <span class="name">Name: ${this.name}</span><br>
-        <span class="location">Location: ${this.location}</span><br>
-        <span class="age">Age: ${this.age}</span><br>
-        <span class="breed"> Breed: ${this.breed.name}</span><br>
-        <span class="description">Description: ${this.description}</span><br>
-        <span class="email"> Contact info: ${this.email} </span>
+        <label> Name: </label>
+        <span class="name">${this.name}</span><br>
+        <span class="location">${this.location}</span><br>
+        <span class="age">${this.age}</span><br>
+        <span class="breed"> ${this.breed.name}</span><br>
+        <span class="description">${this.description}</span><br>
+        <span class="email"> ${this.email} </span>
         </li>
         <button class="delete" data-id="${this.id}">Delete</button>
         <button class="update" data-id="${this.id}">Update</button>
@@ -45,6 +46,7 @@ class Dog{
         this.breed = breed
         this.description = description
         this.email = email 
+        this.fullRender()
     }
 
 }
