@@ -61,18 +61,53 @@ function deleteDog(id){
     dog.remove()
 
 }
+function addUpdateDogFields(dogId){
+    let dog = document.querySelector(`#dog-${dogId} li`)
+    let image_url = dog.querySelector('.image-url').innerHTML.split(" ")[2].split('"')[1]
+    let name = dog.querySelector('.name').innerText 
+    let location = dog.querySelector('.location').innerText
+    let age = dog.querySelector('.age').innerText
+    let breed = dog.querySelector('.breed').innerText
+    let description = dog.querySelector('.description').innerText
+    let email = dog.querySelector('.email').innerText
 
 
+    let updateForm = `
+    <input type="text" value="${image_url}" name="image_url" id="update-image_url-${dogId}">
+    <input type="text" value="${name}" name="name" id="update-name-${dogId}">
+    <input type="text" value="${location}" name="location" id="update-location-${dogId}">
+    <input type="text" value="${age}" name="age" id="update-age-${dogId}">
+    <input type="text" value="${breed}" name="breed" id="update-breed-${dogId}">
+    <input type="text" value="${description}" name="description" id="update-description-${dogId}">
+    <input type="text" value="${email}" name="email" id="update-email-${dogId}">
+    `
 
-function handleListClick(e) {
+    let formDiv = document.createElement('div')
+    formDiv.id = `update-form-${dogId}`
+    formDiv.innerHTML = updateForm
+    dog.append(formDiv)
+}
+
+
+function handleListClick(e){
     if (e.target.className === "delete"){
         let id = e.target.dataset.id
-        deleteDog(id)
-    } 
-
-}
+         deleteDog(id)
+    } else if(e.target.className === 'update'){
+         let dogId = e.target.dataset.id
+         e.target.className = "save"
+         e.target.innerText = "Save"
+         addUpdateDogFields(dogId)
+     } else if(e.target.className === 'save'){
+         let dogId = e.target.dataset.id
+         e.target.className = "update"
+         e.target.innerText = "Update"
+         debugger
+         dogsAdapter.sendPatchRequest(dogId)
+     }
+ }
 document.addEventListener('DOMContentLoaded', () => {
     dogsAdapter.fetchDogs()
     dogForm.addEventListener('submit', handleFormSubmit)
-    //dogList.addEventListener('click', handleListClick)
+    dogList.addEventListener('click', handleListClick)
 })
