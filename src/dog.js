@@ -13,9 +13,27 @@ class Dog{
         this.element = document.createElement('div')
         this.element.id = `dog-${this.id}`
         this.dogList = document.getElementById("dogs-list")
+        this.element.addEventListener('click', this.handleListClick)
 
         Dog.all.push(this)
     }
+    handleListClick = (e)=>{
+        if (e.target.className === "delete"){
+            let id = e.target.dataset.id
+             deleteDog(id)
+        } else if(e.target.className === 'update'){
+             let dogId = e.target.dataset.id
+             e.target.className = "save"
+             e.target.innerText = "Save"
+             addUpdateDogFields(dogId)
+         } else if(e.target.className === 'save'){
+             let dogId = e.target.dataset.id
+             e.target.className = "update"
+             e.target.innerText = "Update"
+             debugger
+             dogsAdapter.sendPatchRequest(dogId)
+         }
+     }
     attachToDom(){
         this.dogList.append(this.fullRender())
     }

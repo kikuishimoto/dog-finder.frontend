@@ -89,25 +89,9 @@ function addUpdateDogFields(dogId){
 }
 
 
-function handleListClick(e){
-    if (e.target.className === "delete"){
-        let id = e.target.dataset.id
-         deleteDog(id)
-    } else if(e.target.className === 'update'){
-         let dogId = e.target.dataset.id
-         e.target.className = "save"
-         e.target.innerText = "Save"
-         addUpdateDogFields(dogId)
-     } else if(e.target.className === 'save'){
-         let dogId = e.target.dataset.id
-         e.target.className = "update"
-         e.target.innerText = "Update"
-         debugger
-         dogsAdapter.sendPatchRequest(dogId)
-     }
- }
+
 document.addEventListener('DOMContentLoaded', () => {
     dogsAdapter.fetchDogs()
     dogForm.addEventListener('submit', handleFormSubmit)
-    dogList.addEventListener('click', handleListClick)
+
 })
