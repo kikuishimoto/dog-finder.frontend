@@ -33,12 +33,18 @@ class DogsAdapter{
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
-                Accept: "application/json"
+                "Accept": "application/json"
             },
             body: JSON.stringify(dogObj)
         }
-        fetch(this.baseURL + `/${dogId}`, configObj)
+        fetch(this.baseUrl + `/${dogId}`, configObj)
         .then(res => res.json())
-        .then(response => updateDogOnDom(response.data))
+        .then(response => {
+            let dog = Dog.all.find((i)=> i.id === response.data.attributes.id)
+            dog.updateDogOnDom(response.data.attributes)
+        })
+        let form = document.getElementById(`update-form-${dogId}`)
+        form.remove()
+        
     }
 }
