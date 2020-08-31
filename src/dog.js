@@ -24,24 +24,24 @@ class Dog{
             dogsAdapter.deleteDog(id)
             this.element.remove()
         }
-       // else if(e.target.className === 'update'){
-        //      let dogId = e.target.dataset.id
-        //      e.target.className = "save"
-        //      e.target.innerText = "Save"
-        //      addUpdateDogFields(dogId)
-        //  } else if(e.target.className === 'save'){
-        //      let dogId = e.target.dataset.id
-        //      e.target.className = "update"
-        //      e.target.innerText = "Update"
-        //      dogsAdapter.sendPatchRequest(dogId)
-        //  }
+       else if(e.target.className === 'update'){
+             let dogId = e.target.dataset.id
+             e.target.className = "save"
+             e.target.innerText = "Save"
+             addUpdateDogFields(dogId)
+         } else if(e.target.className === 'save'){
+             let dogId = e.target.dataset.id
+             e.target.className = "update"
+             e.target.innerText = "Update"
+             dogsAdapter.sendPatchRequest(dogId)
+         }
      }
     attachToDom(){
         this.dogList.append(this.fullRender())
         
     }
     fullRender(){
-        this.element.innerHTML += `
+        this.element.innerHTML = `
         <li>
         <span class="image-url"> <img src="${this.image_url}" width="100" height="100"> </span><br>
         <label> Name: </label>
@@ -53,21 +53,22 @@ class Dog{
         <span class="email"> ${this.email} </span>
         </li>
         <button class="delete" data-id="${this.id}">Delete</button>
+        <button class="update" data-id="${this.id}"> Update </button>
         
     
         `
         return this.element;
     }
-    // updateDogOnDom({image_url, name, location, age, breed, description, email}){
-    //     //let liDog = document.querySelector(`#item-${item.id} li`)
-    //     this.image_url = image_url
-    //     this.name = name 
-    //     this.location =location 
-    //     this.age = age
-    //     this.breed = breed
-    //     this.description = description
-    //     this.email = email 
-    //     this.fullRender()
-    // }
+    updateDogOnDom({image_url, name, location, age, breed, description, email}){
+        //let liDog = document.querySelector(`#item-${item.id} li`)
+        this.image_url = image_url
+        this.name = name 
+        this.location =location 
+        this.age = age
+        this.breed = breed
+        this.description = description
+        this.email = email 
+        this.fullRender()
+    }
 
 }

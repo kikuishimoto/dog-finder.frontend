@@ -15,41 +15,41 @@ class DogsAdapter{
     }
 
     //update
-    // sendPatchRequest(dogId){
-    //     const image_url = document.getElementById(`update-image_url-${dogId}`).value
-    //     const name = document.getElementById(`update-name-${dogId}`).value
-    //     const location = document.getElementById(`update-location-${dogId}`).value
-    //     const age = document.getElementById(`update-age-${dogId}`).value
-    //     const breed = document.getElementById(`update-breed-${dogId}`).value
-    //     const description = document.getElementById(`update-description-${dogId}`).value
-    //     const email = document.getElementById(`update-email-${dogId}`).value
-    //     let dogObj = {
-    //         image_url,
-    //         name,
-    //         location,
-    //         age, 
-    //         breed,
-    //         description,
-    //         email
-    //     }
-    //     let configObj = {
-    //         method: 'PATCH',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify(dogObj)
-    //     }
-    //     fetch(this.baseUrl + `/${dogId}`, configObj)
-    //     .then(res => res.json())
-    //     .then(response => {
-    //         let dog = Dog.all.find((i)=> i.id === response.data.attributes.id)
-    //         dog.updateDogOnDom(response.data.attributes)
-    //     })
-    //     let form = document.getElementById(`update-form-${dogId}`)
-    //     form.remove()
+    sendPatchRequest(dogId){
+        const image_url = document.getElementById(`update-image_url-${dogId}`).value
+        const name = document.getElementById(`update-name-${dogId}`).value
+        const location = document.getElementById(`update-location-${dogId}`).value
+        const age = document.getElementById(`update-age-${dogId}`).value
+        const breed = document.getElementById(`update-breed-${dogId}`).value
+        const description = document.getElementById(`update-description-${dogId}`).value
+        const email = document.getElementById(`update-email-${dogId}`).value
+        let dogObj = {
+            image_url,
+            name,
+            location,
+            age, 
+            breed,
+            description,
+            email
+        }
+        let configObj = {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(dogObj)
+        }
+        fetch(this.baseUrl + `/${dogId}`, configObj)
+        .then(res => res.json())
+        .then(response => {
+            let dog = Dog.all.find((i)=> i.id === response.data.attributes.id)
+            dog.updateDogOnDom(response.data.attributes)
+        })
+        let form = document.getElementById(`update-form-${dogId}`)
+        form.remove()
         
-    // }
+    }
 
     //delete
     deleteDog(id){
@@ -110,5 +110,9 @@ class DogsAdapter{
         })
     
         dogForm.reset()
+        const newForm = document.getElementById('new-form-container')
+        newForm.hidden = true
+        const newFormBtn = document.getElementById('new-form-btn')
+        newFormBtn.hidden = false
     }
 }
