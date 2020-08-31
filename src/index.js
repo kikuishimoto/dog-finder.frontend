@@ -2,6 +2,7 @@ const dogList = document.getElementById('dogs-list')
 const dogForm = document.getElementById("dog-form")
 const allDogs = document.getElementById("all-dogs")
 const dogsAdapter = new DogsAdapter
+const breedsAdapter = new BreedsAdapter
 
 
 
@@ -42,6 +43,7 @@ function hideBtnLoadForm(e){
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    breedsAdapter.fetchBreeds()
     dogsAdapter.fetchDogs()
     dogForm.addEventListener('submit', dogsAdapter.handleFormSubmit)
     const newFormBtn = document.getElementById('new-form-btn')
