@@ -17,10 +17,12 @@ class Dog{
 
         Dog.all.push(this)
     }
+
     handleListClick = (e)=>{
         if (e.target.className === "delete"){
             let id = e.target.dataset.id
-             deleteDog(id)
+            dogsAdapter.deleteDog(id)
+            this.element.remove()
         }
        // else if(e.target.className === 'update'){
         //      let dogId = e.target.dataset.id
@@ -36,6 +38,7 @@ class Dog{
      }
     attachToDom(){
         this.dogList.append(this.fullRender())
+        
     }
     fullRender(){
         this.element.innerHTML += `
