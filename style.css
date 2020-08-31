@@ -48,7 +48,7 @@ body {
     font-size: .65em;
     color: #fff;
     background-color: green;
-    border-radius: 10px;
+    border-radius: 30px;
   }
   
   button.release {
@@ -56,14 +56,14 @@ body {
     background-color: #E1332D;
   }
   
-  @media only screen and (min-width: 500px) {
-    main {
-      grid-template-columns: 1fr 1fr;
-    }
+  .column {
+    float: left;
+    width: 50%;
   }
-  
-  @media only screen and (min-width: 850px) {
-    main {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
   }
