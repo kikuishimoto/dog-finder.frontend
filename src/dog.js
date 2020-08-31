@@ -1,6 +1,6 @@
 class Dog{
     static all = []
-    constructor({image_url, name, location, age, breed, description, email, id}){
+    constructor({image_url, name, location, age, breed, description, email, id, breed_id}){
         this.image_url = image_url
         this.name = name 
         this.location =location 
@@ -9,6 +9,7 @@ class Dog{
         this.description = description
         this.email = email 
         this.id = id 
+        this.breed_id = breed_id
 
         this.element = document.createElement('div')
         this.element.id = `dog-${this.id}`
@@ -16,6 +17,10 @@ class Dog{
         this.element.addEventListener('click', this.handleListClick)
 
         Dog.all.push(this)
+    }
+    get breeds(){
+        return Breed.all.find((breed) => breed.id == dog.breed_id)
+
     }
 
     handleListClick = (e)=>{
@@ -38,7 +43,11 @@ class Dog{
      }
     attachToDom(){
         this.dogList.append(this.fullRender())
+        this.addEventListeners()
         
+    }
+    addEventListeners(){
+        this.element.addEventListener('click', this.handleListClick)
     }
     fullRender(){
         this.element.innerHTML = `
