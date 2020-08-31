@@ -8,8 +8,8 @@ class DogsAdapter{
         .then(res => res.json())
         .then(json => {
             json.data.forEach((el)=>{
-               let dog = new Dog(el.attributes)
-               dog.attachToDom()
+               new Dog(el.attributes)
+               //dog.attachToDom()
             })
         })
     }
