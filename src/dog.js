@@ -41,7 +41,7 @@ class Dog{
              dogsAdapter.sendPatchRequest(dogId)
          }
      }
-    attachToDom(){
+    attachToDom = () => {
         this.dogList.append(this.fullRender())
         this.addEventListeners()
         
@@ -55,14 +55,20 @@ class Dog{
         <span class="image-url"> <img src="${this.image_url}" width="100" height="100"> </span><br>
         <label> Name: </label>
         <span class="name">${this.name}</span><br>
+        <label> Location: </label>
         <span class="location">${this.location}</span><br>
+        <label> Age: </label>
         <span class="age">${this.age}</span><br>
+        <label> Breed: </label>
         <span class="breed"> ${this.breed.name}</span><br>
+        <label> Description: </label>
         <span class="description">${this.description}</span><br>
+        <label> Email: </label>
         <span class="email"> ${this.email} </span>
         </li>
         <button class="delete" data-id="${this.id}">Delete</button>
         <button class="update" data-id="${this.id}"> Update </button>
+        <hr>
         
     
         `
