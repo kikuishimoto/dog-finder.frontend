@@ -8,8 +8,8 @@ class DogsAdapter{
         .then(res => res.json())
         .then(json => {
             json.data.forEach((el)=>{
-               new Dog(el.attributes)
-               //dog.attachToDom()
+               let dog = new Dog(el.attributes)
+               dog.attachToDom()
             })
         })
     }
@@ -106,7 +106,15 @@ class DogsAdapter{
         .then(res => res.json())
         .then(res => {
             let dog = new Dog(res.data.attributes)
-            dog.attachToDom()
+            let breed = new Breed(dog.breed)
+            if(document.getElementById(`breed-${breed.id}`)){
+                dog.attachToDom()
+            } else {
+                dog.attachToDom()
+                breed.attachToDom()
+            }
+
+            
         })
     
         dogForm.reset()
