@@ -6,11 +6,14 @@ body {
   div.column {
     text-align: center;
   }
+  form {
+    text-align: center;
+  }
   
   header {
-    background-color: beige;
+    background-color: rgba(223, 220, 213, 0.838);
     margin: 0 auto;
-    height: 100px;
+    height: 200px;
     text-align: center;
     
   }
@@ -18,7 +21,9 @@ body {
     padding: 3px
   }
   button {
+    color: black;
     padding: 10px 21px;
+    background-color: wheat;
     border: 2px solid #24124d;
     border-radius: 4px;
     cursor: pointer;
@@ -50,12 +55,7 @@ body {
     padding-right: 20px;
   }
   
-  button {
-    font-size: .65em;
-    color: black;
-    background-color: beige;
-    border-radius: 30px;
-  }
+
   
   
   
