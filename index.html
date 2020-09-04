@@ -9,11 +9,12 @@
 </head>
 <body>
   <header>
-    <h2> Welcome to dog finder!</h2>
+    <img src="style/logo.jpeg" width='500' height="150"><br>
     <button id="new-form-btn">Add a new dog</button>
   </header>
   <div id="new-form-container" hidden="true">
   <form id="dog-form">
+    <h4> Create a new Dog </h4>
     <label for="dog-image">Image link:</label>
     <input type="text" name="image_url" id="dog-image"><br>
     <label for="dog-name"> Name: </label>
@@ -27,7 +28,7 @@
     <label for="dog-description"> Description: </label>
     <input type="text" name="description" id="dog-description"><br>
     <label for="dog-email"> Contact info: </label>
-    <input type="text" name="email" id="dog-email">
+    <input type="text" name="email" id="dog-email"><br>
     <input type="submit" value="Create">
   </form>
   </div>
@@ -39,7 +40,7 @@
       </ul>
     </div>
     <div class="column">
-      <h2>Dogs:</h2>
+      <h2>All Dogs</h2>
       <ul id="dogs-list">
       </ul>
     </div>
